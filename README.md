@@ -8,6 +8,6 @@ Exercises from  exercism.org made in Golang
 
     [SOURCE](https://exercism.org/tracks/go/exercises/lasagna)
 
-- needforspeed
+- /needforspeed
 
     [SOURCE](https://exercism.org/tracks/go/exercises/need-for-speed)

@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package lasagna
 
 /*
 1. Define the expected oven time in minutes
@@ -49,22 +47,7 @@ time in minutes, and the time in minutes the lasagna has spent in the oven at th
 
 func ElapsedTime(numberOfLayers, actualMinutesInOven int) int {
 	timeLayers := numberOfLayers * 2 // Preparation
-	actualMinutesInOven = OvenTime   //Oven
 
 	return timeLayers + actualMinutesInOven
 
-}
-
-func main() {
-
-	/*2*/
-	hornoTime := 30
-	fmt.Println("Te quedan unos porquitos minutos:", RemainingOvenTime(hornoTime))
-
-	/*3*/
-	layers := 2
-	fmt.Println("It's preparation time:", (PreparationTime(layers)))
-
-	/*4*/
-	fmt.Println("Tu lasagna lleva haciendose: ", ElapsedTime(layers, hornoTime))
 }
