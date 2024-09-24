@@ -73,15 +73,39 @@ of type []string as parameters. The first parameter is the list your friend sent
 the second is the ingredient list of your own recipe.
 
 The last element in your ingredient list is always "?". The function should replace it with the last item
-from your friends list. Note: AddSecretIngredient does not return anything -
+from your friends list.
+
+Note: AddSecretIngredient does not return anything -
 you should modify the list of your ingredients directly. The list with your
 friend's ingredients should not be modified.
 
 Also, since slice is passed into a function as pointers, changes to the two []string
 arguments passed into AddSecretIngredient will be modified directly.
 */
-func AddSecretIngredient() {
+func AddSecretIngredient(friendsList, myList []string) {
+	myList[len(myList)-1] = friendsList[len(friendsList)-1]
+}
 
+/*
+4. Scale the recipe
+
+Implement a function ScaleRecipe that takes two parameters.
+
+A slice of float64 amounts needed for 2 portions.
+The number of portions you want to cook.
+The function should return a slice of float64 of the amounts needed for the desired
+number of portions. You want to keep the original recipe though.
+
+This means the quantities argument should not be modified in this function.
+*/
+
+func ScaleRecipe(a []float64, b int) []float64 {
+	scaled := make([]float64, len(a))
+	for i, value := range a {
+		scaled[i] = value * float64(b) / 2
+	}
+
+	return scaled
 }
 
 func main() {
@@ -103,4 +127,9 @@ func main() {
 
 	AddSecretIngredient(friendsList, myList)
 	// myList => []string{"noodles", "meat", "sauce", "mozzarella", "kampot pepper"}
+
+	quantities := []float64{1.2, 3.6, 10.5}
+	scaledQuantities := ScaleRecipe(quantities, 4)
+	fmt.Println(scaledQuantities)
+	// => []float64{ 2.4, 7.2, 21 }
 }
